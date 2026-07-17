@@ -2,7 +2,7 @@ import { Utilities } from './utils';
 import { Request, Response } from 'express';
 import { Fetcher } from './fetcher';
 import { invalidUserSvg } from './svgs';
-import { UserDetails } from './interfaces/interface';
+import { ReleaseDetails } from './interfaces/interface';
 
 export class Handlers {
     public getRoot(_req: Request, res: Response) {
@@ -13,15 +13,10 @@ export class Handlers {
         try {
             const utils = new Utilities(req.query);
 
-            const fetcher = new Fetcher(utils.username);
-            const queryOptions = utils.queryOptions();
-            const fetchCalendarData = await fetcher.fetchContributions(
-                utils.queryOptions().days,
-                queryOptions.from,
-                queryOptions.to,
-            );
+            const fetcher = new Fetcher(utils.owner, utils.repo);
+            const fetchReleaseData = await fetcher.fetchReleases();
 
-            const { finalGraph, header } = await utils.buildGraph(fetchCalendarData);
+            const { finalGraph, header } = await utils.buildGraph(fetchReleaseData);
             utils.setHttpHeader(res, header.maxAge);
 
             res.status(200).send(finalGraph);
@@ -36,15 +31,13 @@ export class Handlers {
         try {
             const utils = new Utilities(req.query);
 
-            const fetcher = new Fetcher(utils.username);
-            const fetchCalendarData: UserDetails | string = await fetcher.fetchContributions(
-                utils.queryOptions().days,
-            );
+            const fetcher = new Fetcher(utils.owner, utils.repo);
+            const fetchReleaseData: ReleaseDetails | string = await fetcher.fetchReleases();
 
-            if (typeof fetchCalendarData === 'object') {
-                res.status(200).send(fetchCalendarData);
+            if (typeof fetchReleaseData === 'object') {
+                res.status(200).send(fetchReleaseData);
             } else {
-                res.send(invalidUserSvg(fetchCalendarData));
+                res.send(invalidUserSvg(fetchReleaseData));
             }
         } catch (error) {
             res.send(invalidUserSvg('Something unexpected happened 💥'));

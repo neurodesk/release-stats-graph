@@ -1,99 +1,33 @@
-import { dummyWeeksData } from './fakeInputs';
+import { ReleaseDetails } from '../src/interfaces/interface';
 
-const weeks = () => {
-    for (let i = 1; i <= new Date().getDay(); i++) {
-        dummyWeeksData[6].contributionDays.push({
-            contributionCount: 0,
-        });
-    }
-    return dummyWeeksData;
-};
-
-//For valid username
-export const mockFetchCorrect = jest.fn().mockReturnValue(
+//For valid releases (total downloads per version)
+export const mockFetchReleasesCorrect = jest.fn().mockReturnValue(
     Promise.resolve({
-        data: {
-            data: {
-                user: {
-                    name: 'Ashutosh Dwivedi',
-                    contributionsCollection: {
-                        contributionCalendar: {
-                            totalContributions: 389,
-                            weeks: weeks(),
-                        },
-                    },
-                },
-            },
-        },
-    }),
-);
-
-//For invalid username
-export const mockFetchIncorrect = jest.fn().mockReturnValue({
-    data: {
-        data: {
-            user: null,
-        },
-        errors: [
+        releases: [
             {
-                type: 'NOT_FOUND',
-                path: ['user'],
-                locations: [
-                    {
-                        line: 2,
-                        column: 3,
-                    },
-                ],
-                message: "Could not resolve to a User with the login of 'xyz'.",
+                tag_name: 'v1.0.0',
+                published_at: '2024-01-15T00:00:00Z',
+                platforms: { macos: 2000, linux: 1500, windows: 1500 },
+            },
+            {
+                tag_name: 'v1.1.0',
+                published_at: '2024-03-15T00:00:00Z',
+                platforms: { macos: 1200, linux: 1000, windows: 1000 },
+            },
+            {
+                tag_name: 'v2.0.0',
+                published_at: '2024-06-01T00:00:00Z',
+                platforms: { macos: 800, linux: 500, windows: 500 },
             },
         ],
-    },
-});
+    } as ReleaseDetails)
+);
 
-//For valid username
-export const mockQueryCorrect = jest.fn().mockReturnValue({
-    query: `
-      query userInfo($LOGIN: String!) {
-       user(login: $LOGIN) {
-         name
-         contributionsCollection {
-           contributionCalendar {
-              totalContributions
-              weeks {
-                contributionDays {
-                  contributionCount
-                }
-              }
-            }
-          }
-        }
-      },
-    `,
-    variables: {
-        LOGIN: 'ashutosh00710',
-    },
-});
-
-//For invalid username
-export const mockQueryIncorrect = jest.fn().mockReturnValue({
-    query: `
-      query userInfo($LOGIN: String!) {
-       user(login: $LOGIN) {
-         name
-         contributionsCollection {
-           contributionCalendar {
-              totalContributions
-              weeks {
-                contributionDays {
-                  contributionCount
-                }
-              }
-            }
-          }
-        }
-      },
-    `,
-    variables: {
-        LOGIN: '',
-    },
-});
+//For repo with no releases
+export const mockFetchReleasesNotFound = jest
+    .fn()
+    .mockReturnValue(
+        Promise.resolve(
+            'No releases found for testowner/testrepo. Please check the owner and repo name.'
+        )
+    );

@@ -22,30 +22,14 @@ describe('SVG Testing', () => {
                 1200,
                 fakeQueryStringRes[0].radius,
                 fakeQueryStringRes[0].colors,
-                "xyz's Contribution Graph",
-                fakeQueryStringRes[0].area,
+                'owner/repo Downloads',
+                fakeQueryStringRes[0].area
             ).buildGraph([
-                {
-                    contributionCount: 2,
-                    date: '1',
-                },
-                {
-                    contributionCount: 3,
-                    date: '2',
-                },
-                {
-                    contributionCount: 10,
-                    date: '1',
-                },
-                {
-                    contributionCount: 12,
-                    date: '1',
-                },
-                {
-                    contributionCount: 14,
-                    date: '1',
-                },
-            ]),
+                { quarter: 'Q1 2024', macos: 2000, linux: 1500, windows: 1000 },
+                { quarter: 'Q2 2024', macos: 1500, linux: 1000, windows: 700 },
+                { quarter: 'Q3 2024', macos: 800, linux: 600, windows: 400 },
+                { quarter: 'Q4 2024', macos: 400, linux: 300, windows: 200 },
+            ])
         ).toMatchSnapshot();
     });
 });

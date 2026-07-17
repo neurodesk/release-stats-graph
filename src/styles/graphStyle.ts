@@ -1,4 +1,4 @@
-export const graphStyle = (color: string, line: string, point: string, area: string) =>
+export const graphStyle = (color: string, _line: string, _point: string, _area: string) =>
     `
     .ct-label {
       fill: #${color};
@@ -44,8 +44,12 @@ export const graphStyle = (color: string, line: string, point: string, area: str
       -webkit-justify-content: flex-start;
       -ms-flex-pack: flex-start;
       justify-content: flex-start;
-      text-align: left;
-      text-anchor: start;
+      text-anchor: end;
+      transform: rotate(-45deg);
+      -webkit-transform: rotate(-45deg);
+      -moz-transform: rotate(-45deg);
+      transform-box: fill-box;
+      transform-origin: 100% 0;
     }
 
     .ct-label.ct-vertical.ct-start {
@@ -84,7 +88,6 @@ export const graphStyle = (color: string, line: string, point: string, area: str
     .ct-point {
       stroke-width: 10px;
       stroke-linecap: round;
-      stroke: #${point};
       animation: blink 1s ease-in-out forwards;
     }
 
@@ -92,7 +95,6 @@ export const graphStyle = (color: string, line: string, point: string, area: str
       stroke-width: 4px;
       stroke-dasharray: 5000;
       stroke-dashoffset: 5000;
-      stroke: #${line};
       animation: dash 5s ease-in-out forwards;
     }
 
@@ -101,10 +103,20 @@ export const graphStyle = (color: string, line: string, point: string, area: str
       fill-opacity: 0.1;
     }
 
-    .ct-series-a .ct-area,
-    .ct-series-a .ct-slice-pie {
-      fill: #${area};
-    }
+    /* macOS series */
+    .ct-series-a .ct-line { stroke: #5bcdec; }
+    .ct-series-a .ct-point { stroke: #5bcdec; }
+    .ct-series-a .ct-area { fill: #5bcdec; }
+
+    /* Linux series */
+    .ct-series-b .ct-line { stroke: #f9a825; }
+    .ct-series-b .ct-point { stroke: #f9a825; }
+    .ct-series-b .ct-area { fill: #f9a825; }
+
+    /* Windows series */
+    .ct-series-c .ct-line { stroke: #4caf50; }
+    .ct-series-c .ct-point { stroke: #4caf50; }
+    .ct-series-c .ct-area { fill: #4caf50; }
 
     .ct-label .ct-horizontal {
       transform: rotate(-90deg)

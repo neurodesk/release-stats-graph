@@ -28,9 +28,8 @@ describe('Utilities Test', () => {
             const app = fakeServer();
             app.get('/graph', handlers.getGraph);
             request(app)
-                .get('/graph?username=ashutosh00710')
+                .get('/graph?owner=cli&repo=cli')
                 .expect('Content-Type', 'image/svg+xml; charset=utf-8')
-                .expect('Cache-Control', 'public, max-age=1800')
                 .expect(200, done);
         });
     });
@@ -40,7 +39,7 @@ describe('Utilities Test', () => {
             const app = fakeServer();
             app.get('/graph', handlers.getGraph);
             request(app)
-                .get('/graph?username=')
+                .get('/graph?owner=&repo=')
                 .expect('Content-Type', 'image/svg+xml; charset=utf-8')
                 .expect('Cache-Control', 'no-store, max-age=0')
                 .expect(200, done);
@@ -51,31 +50,19 @@ describe('Utilities Test', () => {
     it('Graph Generation', async () => {
         expect.assertions(1);
 
-        const days = [
-            {
-                contributionCount: 2,
-                date: '1',
-            },
-            {
-                contributionCount: 3,
-                date: '2',
-            },
-            {
-                contributionCount: 10,
-                date: '3',
-            },
-            {
-                contributionCount: 12,
-                date: '4',
-            },
-            {
-                contributionCount: 14,
-                date: '5',
-            },
+        const quarterlyData = [
+            { quarter: 'Q1 2024', macos: 2000, linux: 1500, windows: 1000 },
+            { quarter: 'Q2 2024', macos: 1500, linux: 1000, windows: 700 },
+            { quarter: 'Q3 2024', macos: 800, linux: 600, windows: 400 },
+            { quarter: 'Q4 2024', macos: 400, linux: 300, windows: 200 },
         ];
         const graph: Promise<string> = await createGraph('line', options, {
-            labels: days.map((day) => day.date),
-            series: [{ value: days.map((day) => day.contributionCount) }],
+            labels: quarterlyData.map((q) => q.quarter),
+            series: [
+                { value: quarterlyData.map((q) => q.macos) },
+                { value: quarterlyData.map((q) => q.linux) },
+                { value: quarterlyData.map((q) => q.windows) },
+            ],
         });
         expect(graph).toMatchSnapshot();
     });

@@ -1,124 +1,80 @@
-import axios, { AxiosResponse } from 'axios';
+import axios from 'axios';
 import * as dotenv from 'dotenv';
-import moment from 'moment';
-import { Query, UserDetails, Week, ContributionDay, ResponseOfApi } from 'src/interfaces/interface';
+import {
+    ReleaseDetails,
+    ReleaseApiResponse,
+    ReleaseDownload,
+    ReleaseAsset,
+} from 'src/interfaces/interface';
 
 dotenv.config();
 
-export class Fetcher {
-    private readonly username: string;
-    constructor(username: string) {
-        this.username = username;
-    }
-
-    private getGraphQLQuery(from: string, to: string) {
-        return {
-            query: `
-              query userInfo($LOGIN: String!, $FROM: DateTime!, $TO: DateTime!) {
-                user(login: $LOGIN) {
-                  name
-                  contributionsCollection(from: $FROM, to: $TO) {
-                    contributionCalendar {
-                      weeks {
-                        contributionDays {
-                          contributionCount
-                          date
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            `,
-            variables: {
-                LOGIN: this.username,
-                FROM: from,
-                TO: to,
-            },
-        };
-    }
-
-    private async fetch(graphQLQuery: Query): Promise<AxiosResponse<ResponseOfApi>> {
-        return axios({
-            url: 'https://api.github.com/graphql',
-            method: 'POST',
-            headers: {
-                Authorization: `bearer ${process.env.TOKEN}`,
-            },
-            data: graphQLQuery,
-        });
-    }
-
-    public async fetchContributions(
-        days: number,
-        customFromDate?: string,
-        customToDate?: string,
-    ): Promise<UserDetails | string> {
-        let from = '',
-            to = '';
-        if (customFromDate && customToDate) {
-            from = moment(customFromDate).utc().toISOString(true);
-            to = moment(customToDate).utc().toISOString(true);
-        } else {
-            const now = moment();
-            from = moment(now).subtract(days, 'days').utc().toISOString();
-            // also include the next day in case our server is behind in time with respect to GitHub
-            to = moment(now).add(1, 'days').utc().toISOString();
+function classifyAssets(assets: ReleaseAsset[]) {
+    let macos = 0;
+    let linux = 0;
+    let windows = 0;
+    for (const asset of assets) {
+        const name = asset.name.toLowerCase();
+        if (name.endsWith('.dmg') || name.endsWith('.zip')) {
+            macos += asset.download_count;
+        } else if (name.endsWith('.deb') || name.endsWith('.rpm')) {
+            linux += asset.download_count;
+        } else if (name.endsWith('.exe')) {
+            windows += asset.download_count;
         }
+    }
+    return { macos, linux, windows };
+}
 
+export class Fetcher {
+    constructor(private readonly owner: string, private readonly repo: string) {}
+
+    public async fetchReleases(): Promise<ReleaseDetails | string> {
         try {
-            const apiResponse = await this.fetch(this.getGraphQLQuery(from, to));
+            const apiResponse = await axios({
+                url: `https://api.github.com/repos/${encodeURIComponent(
+                    this.owner
+                )}/${encodeURIComponent(this.repo)}/releases`,
+                method: 'GET',
+                headers: {
+                    Authorization: `bearer ${process.env.TOKEN}`,
+                    Accept: 'application/vnd.github+json',
+                },
+            });
 
-            if (apiResponse.data.errors) {
-                console.error('API Error: ', apiResponse.data.errors);
-                if (apiResponse.data.errors[0].type === 'RATE_LIMITED') {
-                    console.log('GraphQL Error: API rate limit exceeded');
-                    return '💥 API rate limit exceeded. Please deploy your own instance.';
-                } else {
-                    return `Can't fetch any contribution. Please check your username 😬`;
-                }
-            } else if (apiResponse.data.data) {
-                if (apiResponse.data.data.user === null)
-                    return `Can't fetch any contribution. Please check your username 😬`;
-                else {
-                    const userData: UserDetails = {
-                        contributions: [],
-                        name: apiResponse.data.data.user.name,
-                    };
-                    //filtering the week data from API response
-                    const weeks =
-                        apiResponse.data.data.user.contributionsCollection.contributionCalendar
-                            .weeks;
-                    // get day-contribution data
-                    weeks.map((week: Week) =>
-                        week.contributionDays.map((contributionDay: ContributionDay) => {
-                            contributionDay.date = moment(contributionDay.date, moment.ISO_8601)
-                                .date()
-                                .toString();
-                            userData.contributions.push(contributionDay);
-                        }),
-                    );
+            const releases: ReleaseApiResponse[] = apiResponse.data;
 
-                    // if 32nd entry is 0 means:
-                    // either the day hasn't really started
-                    // or the user hasn't contributed today
-                    const length = userData.contributions.length;
-                    if (!(customFromDate && customToDate)) {
-                        if (userData.contributions[length - 1].contributionCount === 0) {
-                            userData.contributions.pop();
-                        }
-                        const extra = userData.contributions.length - days;
-                        userData.contributions.splice(0, extra);
-                    }
-                    return userData;
-                }
-            } else {
-                console.error('Unexpected API response structure');
-                throw new Error('Unexpected API response structure');
+            if (!releases || releases.length === 0) {
+                return `No releases found for ${this.owner}/${this.repo}`;
             }
+
+            // Classify asset downloads by platform
+            const releaseDownloads: ReleaseDownload[] = releases
+                .map((release) => {
+                    const assets = (release.assets || []).filter(
+                        (asset) => asset.name !== 'latest.yml'
+                    );
+                    return {
+                        tag_name: release.tag_name,
+                        published_at: release.published_at,
+                        platforms: classifyAssets(assets),
+                    };
+                })
+                .reverse(); // chronological order (oldest first)
+
+            if (releaseDownloads.length === 0) {
+                return `No release assets found for ${this.owner}/${this.repo}`;
+            }
+
+            return {
+                releases: releaseDownloads,
+            };
         } catch (error) {
             console.log('error: ', error);
-            return `Can't fetch any contribution. Please check your username 😬`;
+            if (error.response && error.response.status === 404) {
+                return `No releases found for ${this.owner}/${this.repo}. Please check the owner and repo name.`;
+            }
+            return `Failed to fetch release data for ${this.owner}/${this.repo}`;
         }
     }
 }

@@ -1,10 +1,3 @@
-export class Query {
-    query: string;
-    variables: {
-        LOGIN: string;
-    };
-}
-
 export class Colors {
     areaColor: string;
     bgColor: string;
@@ -16,21 +9,20 @@ export class Colors {
 }
 
 export class QueryOption {
-    username: string;
+    owner: string;
+    repo: string;
     hide_title?: boolean;
     custom_title?: string;
-    from?: string;
-    to?: string;
     grid: boolean;
     colors: Colors;
     area: boolean;
     radius: number;
     height: number;
-    days: number;
 }
 
 export class ParsedQs {
-    username?: string;
+    owner?: string;
+    repo?: string;
     hide_title?: boolean;
     custom_title?: string;
     bg_color?: string;
@@ -45,10 +37,14 @@ export class ParsedQs {
     radius?: number;
     title_color?: string;
     height?: number;
-    days?: string;
+    grid?: string;
     from?: string;
     to?: string;
-    grid?: string;
+}
+
+export class ReleaseMarker {
+    xPercent: number;
+    tag_name: string;
 }
 
 export class GraphArgs {
@@ -58,33 +54,40 @@ export class GraphArgs {
     title: string;
     radius: number;
     line: Promise<string>;
+    releaseMarkers: ReleaseMarker[];
 }
 
-export class UserDetails {
-    contributions: Array<ContributionDay>;
+export class PlatformDownloads {
+    macos: number;
+    linux: number;
+    windows: number;
+}
+
+export class ReleaseDownload {
+    tag_name: string;
+    published_at: string;
+    platforms: PlatformDownloads;
+}
+
+export class QuarterlyDownload {
+    quarter: string;
+    macos: number;
+    linux: number;
+    windows: number;
+}
+
+export class ReleaseDetails {
+    releases: Array<ReleaseDownload>;
+}
+
+export class ReleaseAsset {
     name: string;
+    download_count: number;
 }
 
-export class ContributionDay {
-    contributionCount: number;
-    date: string;
-}
-
-export class Week {
-    contributionDays: Array<ContributionDay>;
-}
-
-export class ResponseOfApi {
-    data?: {
-        user: {
-            name: string;
-            contributionsCollection: {
-                contributionCalendar: {
-                    totalContributions: number;
-                    weeks: Array<Week>;
-                };
-            };
-        };
-    };
-    errors?: Array<{ message: string; type: string }>;
+export class ReleaseApiResponse {
+    name: string | null;
+    tag_name: string;
+    published_at: string;
+    assets: Array<ReleaseAsset>;
 }

@@ -2,7 +2,8 @@ import { GraphArgs } from '../src/interfaces/interface';
 
 export let fakeQueryString = [
     {
-        username: 'githubusername',
+        owner: 'testowner',
+        repo: 'testrepo',
         radius: 8,
         height: 400,
         hide_title: false,
@@ -10,7 +11,8 @@ export let fakeQueryString = [
         title_color: 'ffffff',
     },
     {
-        username: 'githubusername',
+        owner: 'testowner',
+        repo: 'testrepo',
         radius: -10,
         height: 100,
         bg_color: '44475a',
@@ -18,7 +20,8 @@ export let fakeQueryString = [
         custom_title: undefined,
     },
     {
-        username: 'githubusername',
+        owner: 'testowner',
+        repo: 'testrepo',
         radius: 35,
         height: 800,
         bg_color: '44475a',
@@ -27,7 +30,8 @@ export let fakeQueryString = [
         custom_title: undefined,
     },
     {
-        username: 'githubusername',
+        owner: 'testowner',
+        repo: 'testrepo',
         bg_color: '44475a',
         color: '000000',
         line: '9e4c98',
@@ -35,7 +39,8 @@ export let fakeQueryString = [
         custom_title: undefined,
     },
     {
-        username: 'githubusername',
+        owner: 'testowner',
+        repo: 'testrepo',
         bg_color: '44475a',
         color: '000000',
         line: '9e4c98',
@@ -44,7 +49,8 @@ export let fakeQueryString = [
         custom_title: undefined,
     },
     {
-        username: 'githubusername',
+        owner: 'testowner',
+        repo: 'testrepo',
         bg_color: '44475a',
         color: 'f8f8f2',
         line: 'ff79c6',
@@ -54,7 +60,8 @@ export let fakeQueryString = [
         custom_title: undefined,
     },
     {
-        username: 'githubusername',
+        owner: 'testowner',
+        repo: 'testrepo',
         bg_color: '44475a',
         color: 'f8f8f2',
         line: 'ff79c6',
@@ -65,7 +72,8 @@ export let fakeQueryString = [
         custom_title: undefined,
     },
     {
-        username: 'githubusername',
+        owner: 'testowner',
+        repo: 'testrepo',
         bg_color: '44475a',
         color: 'f8f8f2',
         line: 'ff79c6',
@@ -76,7 +84,8 @@ export let fakeQueryString = [
         custom_title: undefined,
     },
     {
-        username: 'githubusername',
+        owner: 'testowner',
+        repo: 'testrepo',
         bg_color: '44475a',
         color: 'f8f8f2',
         line: 'ff79c6',
@@ -100,7 +109,8 @@ export let fakeQueryString = [
 
 export let fakeQueryStringRes = [
     {
-        username: 'githubusername',
+        owner: 'testowner',
+        repo: 'testrepo',
         radius: 8,
         height: 400,
         colors: {
@@ -114,13 +124,11 @@ export let fakeQueryStringRes = [
         },
         hide_title: false,
         area: false,
-        days: 31,
-        from: '',
-        to: '',
         grid: true,
     },
     {
-        username: 'githubusername',
+        owner: 'testowner',
+        repo: 'testrepo',
         radius: 0,
         height: 200,
         colors: {
@@ -134,13 +142,11 @@ export let fakeQueryStringRes = [
         },
         hide_title: false,
         area: false,
-        days: 31,
-        from: '',
-        to: '',
         grid: true,
     },
     {
-        username: 'githubusername',
+        owner: 'testowner',
+        repo: 'testrepo',
         radius: 16,
         height: 600,
         colors: {
@@ -154,13 +160,11 @@ export let fakeQueryStringRes = [
         },
         hide_title: false,
         area: false,
-        days: 31,
-        from: '',
-        to: '',
         grid: true,
     },
     {
-        username: 'githubusername',
+        owner: 'testowner',
+        repo: 'testrepo',
         radius: 0,
         height: 420,
         colors: {
@@ -174,13 +178,11 @@ export let fakeQueryStringRes = [
         },
         hide_title: false,
         area: false,
-        days: 31,
-        from: '',
-        to: '',
         grid: true,
     },
     {
-        username: 'githubusername',
+        owner: 'testowner',
+        repo: 'testrepo',
         radius: 0,
         height: 420,
         colors: {
@@ -194,13 +196,11 @@ export let fakeQueryStringRes = [
         },
         hide_title: false,
         area: false,
-        days: 31,
-        from: '',
-        to: '',
         grid: true,
     },
     {
-        username: 'githubusername',
+        owner: 'testowner',
+        repo: 'testrepo',
         radius: 0,
         height: 420,
         colors: {
@@ -214,13 +214,11 @@ export let fakeQueryStringRes = [
         },
         hide_title: false,
         area: true,
-        days: 31,
-        from: '',
-        to: '',
         grid: true,
     },
     {
-        username: 'githubusername',
+        owner: 'testowner',
+        repo: 'testrepo',
         radius: 0,
         height: 420,
         colors: {
@@ -234,13 +232,11 @@ export let fakeQueryStringRes = [
         },
         area: true,
         hide_title: false,
-        days: 31,
-        from: '',
-        to: '',
         grid: true,
     },
     {
-        username: 'githubusername',
+        owner: 'testowner',
+        repo: 'testrepo',
         radius: 0,
         height: 420,
         colors: {
@@ -254,13 +250,11 @@ export let fakeQueryStringRes = [
         },
         area: true,
         hide_title: true,
-        days: 31,
-        from: '',
-        to: '',
         grid: true,
     },
     {
-        username: 'githubusername',
+        owner: 'testowner',
+        repo: 'testrepo',
         radius: 0,
         height: 420,
         colors: {
@@ -275,29 +269,6 @@ export let fakeQueryStringRes = [
         area: true,
         hide_title: false,
         custom_title: 'some title',
-        days: 31,
-        from: '',
-        to: '',
-        grid: true,
-    },
-    {
-        username: 'githubusername',
-        radius: 0,
-        height: 420,
-        colors: {
-            areaColor: '9e4c98',
-            bgColor: '44475a',
-            borderColor: 'ff0000',
-            color: 'f8f8f2',
-            titleColor: 'f8f8f2',
-            lineColor: 'ff79c6',
-            pointColor: 'bd93f9',
-        },
-        area: true,
-        hide_title: false,
-        days: 31,
-        from: '',
-        to: '',
         grid: true,
     },
 ];
@@ -317,6 +288,7 @@ export let fakeGraphArgs: GraphArgs = {
     },
     title: 'graphSvg',
     line: Promise.resolve('line'),
+    releaseMarkers: [],
 };
 
 export let options = {
@@ -336,190 +308,31 @@ export let options = {
     area: false,
 };
 
-export const expectedQuery = (username: string, from: string, to: string) => {
-    return {
-        query: `
-              query userInfo($LOGIN: String!, $FROM: DateTime!, $TO: DateTime!) {
-                user(login: $LOGIN) {
-                  name
-                  contributionsCollection(from: $FROM, to: $TO) {
-                    contributionCalendar {
-                      weeks {
-                        contributionDays {
-                          contributionCount
-                          date
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            `,
-        variables: {
-            LOGIN: username,
-            FROM: from,
-            TO: to,
-        },
-    };
-};
-
-export const dummyWeeksData = [
+export const dummyReleaseDownloads = [
     {
-        contributionDays: [
-            {
-                contributionCount: 2,
-            },
-            {
-                contributionCount: 3,
-            },
-            {
-                contributionCount: 16,
-            },
-            {
-                contributionCount: 0,
-            },
-            {
-                contributionCount: 5,
-            },
-            {
-                contributionCount: 3,
-            },
-            {
-                contributionCount: 0,
-            },
-        ],
+        tag_name: 'v1.0.0',
+        published_at: '2024-01-15T00:00:00Z',
+        platforms: { macos: 2000, linux: 1500, windows: 1500 },
     },
     {
-        contributionDays: [
-            {
-                contributionCount: 0,
-            },
-            {
-                contributionCount: 0,
-            },
-            {
-                contributionCount: 0,
-            },
-            {
-                contributionCount: 0,
-            },
-            {
-                contributionCount: 2,
-            },
-            {
-                contributionCount: 0,
-            },
-            {
-                contributionCount: 5,
-            },
-        ],
+        tag_name: 'v1.1.0',
+        published_at: '2024-03-15T00:00:00Z',
+        platforms: { macos: 1200, linux: 1000, windows: 1000 },
     },
     {
-        contributionDays: [
-            {
-                contributionCount: 1,
-            },
-            {
-                contributionCount: 8,
-            },
-            {
-                contributionCount: 5,
-            },
-            {
-                contributionCount: 0,
-            },
-            {
-                contributionCount: 0,
-            },
-            {
-                contributionCount: 0,
-            },
-            {
-                contributionCount: 0,
-            },
-        ],
+        tag_name: 'v2.0.0',
+        published_at: '2024-06-01T00:00:00Z',
+        platforms: { macos: 800, linux: 500, windows: 500 },
     },
     {
-        contributionDays: [
-            {
-                contributionCount: 0,
-            },
-            {
-                contributionCount: 4,
-            },
-            {
-                contributionCount: 8,
-            },
-            {
-                contributionCount: 0,
-            },
-            {
-                contributionCount: 0,
-            },
-            {
-                contributionCount: 14,
-            },
-            {
-                contributionCount: 6,
-            },
-        ],
+        tag_name: 'v2.1.0',
+        published_at: '2024-08-01T00:00:00Z',
+        platforms: { macos: 400, linux: 300, windows: 200 },
     },
     {
-        contributionDays: [
-            {
-                contributionCount: 13,
-            },
-            {
-                contributionCount: 2,
-            },
-            {
-                contributionCount: 10,
-            },
-            {
-                contributionCount: 2,
-            },
-            {
-                contributionCount: 1,
-            },
-            {
-                contributionCount: 5,
-            },
-            {
-                contributionCount: 13,
-            },
-        ],
-    },
-    {
-        contributionDays: [
-            {
-                contributionCount: 1,
-            },
-            {
-                contributionCount: 3,
-            },
-            {
-                contributionCount: 6,
-            },
-            {
-                contributionCount: 7,
-            },
-            {
-                contributionCount: 2,
-            },
-            {
-                contributionCount: 1,
-            },
-            {
-                contributionCount: 5,
-            },
-        ],
-    },
-    {
-        contributionDays: [
-            {
-                contributionCount: 11,
-            },
-        ],
+        tag_name: 'v3.0.0',
+        published_at: '2024-10-01T00:00:00Z',
+        platforms: { macos: 200, linux: 100, windows: 100 },
     },
 ];
 
