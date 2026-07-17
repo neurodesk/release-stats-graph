@@ -3,9 +3,10 @@
 exports[`SVG Testing Test SVGs 1`] = `
 "
     <svg
-        width="20"
-        height="10"
+        width="100%"
+        height="100%"
         viewBox="0 0 20 10"
+        preserveAspectRatio="xMidYMid meet"
         fill="none"
         xmlns="http://www.w3.org/2000/svg">
             <rect xmlns="http://www.w3.org/2000/svg" data-testid="card_bg" id="cardBg"
@@ -176,13 +177,13 @@ exports[`SVG Testing Test SVGs 1`] = `
                     graphSvg
                 </h1>
             </foreignObject>
-            <g class=\\"legend\\" transform=\\"translate(-110, -8)\\">
-                <rect x=\\"0\\" y=\\"0\\" width=\\"12\\" height=\\"12\\" fill=\\"#5bcdec\\"/>
-                <text x=\\"18\\" y=\\"11\\" fill=\\"#f8f8f2\\" font-size=\\"12\\" font-family=\\"'Segoe UI', Ubuntu, Sans-Serif\\">macOS</text>
-                <rect x=\\"80\\" y=\\"0\\" width=\\"12\\" height=\\"12\\" fill=\\"#f9a825\\"/>
-                <text x=\\"98\\" y=\\"11\\" fill=\\"#f8f8f2\\" font-size=\\"12\\" font-family=\\"'Segoe UI', Ubuntu, Sans-Serif\\">Linux</text>
-                <rect x=\\"150\\" y=\\"0\\" width=\\"12\\" height=\\"12\\" fill=\\"#4caf50\\"/>
-                <text x=\\"168\\" y=\\"11\\" fill=\\"#f8f8f2\\" font-size=\\"12\\" font-family=\\"'Segoe UI', Ubuntu, Sans-Serif\\">Windows</text>
+            <g class="legend" transform="translate(-110, -8)">
+                <rect x="0" y="0" width="12" height="12" fill="#5bcdec"/>
+                <text x="18" y="11" fill="#f8f8f2" font-size="12" font-family="'Segoe UI', Ubuntu, Sans-Serif">macOS</text>
+                <rect x="80" y="0" width="12" height="12" fill="#f9a825"/>
+                <text x="98" y="11" fill="#f8f8f2" font-size="12" font-family="'Segoe UI', Ubuntu, Sans-Serif">Linux</text>
+                <rect x="150" y="0" width="12" height="12" fill="#4caf50"/>
+                <text x="168" y="11" fill="#f8f8f2" font-size="12" font-family="'Segoe UI', Ubuntu, Sans-Serif">Windows</text>
             </g>
             [object Promise]
             
@@ -214,9 +215,10 @@ exports[`SVG Testing Test SVGs 2`] = `
 exports[`SVG Testing chart SVGs 1`] = `
 "
     <svg
-        width="1200"
-        height="420"
+        width="100%"
+        height="100%"
         viewBox="0 0 1200 420"
+        preserveAspectRatio="xMidYMid meet"
         fill="none"
         xmlns="http://www.w3.org/2000/svg">
             <rect xmlns="http://www.w3.org/2000/svg" data-testid="card_bg" id="cardBg"
@@ -382,20 +384,20 @@ exports[`SVG Testing chart SVGs 1`] = `
     
             </style>
 
-            <foreignObject x=\\"0\\" y=\\"0\\" width=\\"1200\\" height=\\"50\\">
-                <h1 xmlns=\\"http://www.w3.org/1999/xhtml\\" class=\\"header\\">
+            <foreignObject x="0" y="0" width="1200" height="50">
+                <h1 xmlns="http://www.w3.org/1999/xhtml" class="header">
                     owner/repo Downloads
                 </h1>
             </foreignObject>
-            <g class=\\"legend\\" transform=\\"translate(480, 402)\\">
-                <rect x=\\"0\\" y=\\"0\\" width=\\"12\\" height=\\"12\\" fill=\\"#5bcdec\\"/>
-                <text x=\\"18\\" y=\\"11\\" fill=\\"#9e4c98\\" font-size=\\"12\\" font-family=\\"'Segoe UI', Ubuntu, Sans-Serif\\">macOS</text>
-                <rect x=\\"80\\" y=\\"0\\" width=\\"12\\" height=\\"12\\" fill=\\"#f9a825\\"/>
-                <text x=\\"98\\" y=\\"11\\" fill=\\"#9e4c98\\" font-size=\\"12\\" font-family=\\"'Segoe UI', Ubuntu, Sans-Serif\\">Linux</text>
-                <rect x=\\"150\\" y=\\"0\\" width=\\"12\\" height=\\"12\\" fill=\\"#4caf50\\"/>
-                <text x=\\"168\\" y=\\"11\\" fill=\\"#9e4c98\\" font-size=\\"12\\" font-family=\\"'Segoe UI', Ubuntu, Sans-Serif\\">Windows</text>
+            <g class="legend" transform="translate(480, 402)">
+                <rect x="0" y="0" width="12" height="12" fill="#5bcdec"/>
+                <text x="18" y="11" fill="#9e4c98" font-size="12" font-family="'Segoe UI', Ubuntu, Sans-Serif">macOS</text>
+                <rect x="80" y="0" width="12" height="12" fill="#f9a825"/>
+                <text x="98" y="11" fill="#9e4c98" font-size="12" font-family="'Segoe UI', Ubuntu, Sans-Serif">Linux</text>
+                <rect x="150" y="0" width="12" height="12" fill="#4caf50"/>
+                <text x="168" y="11" fill="#9e4c98" font-size="12" font-family="'Segoe UI', Ubuntu, Sans-Serif">Windows</text>
             </g>
-            <svg xmlns:ct=\\"http://gionkunz.github.com/chartist-js/ct\\" width=\\"1200\\" height=\\"420\\" class=\\"ct-chart-line\\"><g class=\\"ct-grids\\"><line x1=\\"90\\" x2=\\"90\\" y1=\\"80\\" y2=\\"320\\" class=\\"ct-grid ct-horizontal\\"></line><line x1=\\"443.3333333333333\\" x2=\\"443.3333333333333\\" y1=\\"80\\" y2=\\"320\\" class=\\"ct-grid ct-horizontal\\"></line><line x1=\\"796.6666666666666\\" x2=\\"796.6666666666666\\" y1=\\"80\\" y2=\\"320\\" class=\\"ct-grid ct-horizontal\\"></line><line x1=\\"1150\\" x2=\\"1150\\" y1=\\"80\\" y2=\\"320\\" class=\\"ct-grid ct-horizontal\\"></line><line y1=\\"224\\" y2=\\"224\\" x1=\\"90\\" x2=\\"1150\\" class=\\"ct-grid ct-vertical\\"></line><line y1=\\"176\\" y2=\\"176\\" x1=\\"90\\" x2=\\"1150\\" class=\\"ct-grid ct-vertical\\"></line><line y1=\\"128\\" y2=\\"128\\" x1=\\"90\\" x2=\\"1150\\" class=\\"ct-grid ct-vertical\\"></line><line y1=\\"80\\" y2=\\"80\\" x1=\\"90\\" x2=\\"1150\\" class=\\"ct-grid ct-vertical\\"></line></g><g><g class=\\"ct-series ct-series-a\\"><path d=\\"M90,161.54C207.778,163.538,325.556,164.793,443.333,167.534C561.111,170.275,678.889,176.05,796.667,180.626C914.444,185.201,1032.222,190.241,1150,195.049\\" class=\\"ct-line\\"></path><line x1=\\"90\\" y1=\\"161.54013974546186\\" x2=\\"90.01\\" y2=\\"161.54013974546186\\" class=\\"ct-point\\" ct:value=\\"3.3012470886362113\\"></line><line x1=\\"443.3333333333333\\" y1=\\"167.53372677232304\\" x2=\\"443.3433333333333\\" y2=\\"167.53372677232304\\" class=\\"ct-point\\" ct:value=\\"3.1763806922432702\\"></line><line x1=\\"796.6666666666666\\" y1=\\"180.62563922795658\\" x2=\\"796.6766666666666\\" y2=\\"180.62563922795658\\" class=\\"ct-point\\" ct:value=\\"2.9036325160842376\\"></line><line x1=\\"1150\\" y1=\\"195.04907011423126\\" x2=\\"1150.01\\" y2=\\"195.04907011423126\\" class=\\"ct-point\\" ct:value=\\"2.603144372620182\\"></line></g><g class=\\"ct-series ct-series-b\\"><path d=\\"M90,167.534C207.778,170.349,325.556,172.841,443.333,175.979C561.111,179.117,678.889,182.534,796.667,186.614C914.444,190.694,1032.222,196.224,1150,201.029\\" class=\\"ct-line\\"></path><line x1=\\"90\\" y1=\\"167.53372677232304\\" x2=\\"90.01\\" y2=\\"167.53372677232304\\" class=\\"ct-point\\" ct:value=\\"3.1763806922432702\\"></line><line x1=\\"443.3333333333333\\" y1=\\"175.9791642809927\\" x2=\\"443.3433333333333\\" y2=\\"175.9791642809927\\" class=\\"ct-point\\" ct:value=\\"3.000434077479319\\"></line><line x1=\\"796.6666666666666\\" y1=\\"186.6140253438685\\" x2=\\"796.6766666666666\\" y2=\\"186.6140253438685\\" class=\\"ct-point\\" ct:value=\\"2.7788744720027396\\"></line><line x1=\\"1150\\" y1=\\"201.02880821149554\\" x2=\\"1150.01\\" y2=\\"201.02880821149554\\" class=\\"ct-point\\" ct:value=\\"2.478566495593843\\"></line></g><g class=\\"ct-series ct-series-c\\"><path d=\\"M90,175.979C207.778,178.455,325.556,180.383,443.333,183.406C561.111,186.428,678.889,190.757,796.667,195.049C914.444,199.341,1032.222,204.647,1150,209.447\\" class=\\"ct-line\\"></path><line x1=\\"90\\" y1=\\"175.9791642809927\\" x2=\\"90.01\\" y2=\\"175.9791642809927\\" class=\\"ct-point\\" ct:value=\\"3.000434077479319\\"></line><line x1=\\"443.3333333333333\\" y1=\\"183.4055351376004\\" x2=\\"443.3433333333333\\" y2=\\"183.4055351376004\\" class=\\"ct-point\\" ct:value=\\"2.8457180179666586\\"></line><line x1=\\"796.6666666666666\\" y1=\\"195.04907011423126\\" x2=\\"796.6766666666666\\" y2=\\"195.04907011423126\\" class=\\"ct-point\\" ct:value=\\"2.603144372620182\\"></line><line x1=\\"1150\\" y1=\\"209.4465892438165\\" x2=\\"1150.01\\" y2=\\"209.4465892438165\\" class=\\"ct-point\\" ct:value=\\"2.303196057420489\\"></line></g></g><g class=\\"ct-labels\\"><text x=\\"85.5\\" y=\\"340\\" width=\\"353.3333333333333\\" height=\\"70\\" class=\\"ct-label ct-horizontal ct-end\\">Q1 2024</text><text x=\\"438.8333333333333\\" y=\\"340\\" width=\\"353.3333333333333\\" height=\\"70\\" class=\\"ct-label ct-horizontal ct-end\\">Q2 2024</text><text x=\\"792.1666666666666\\" y=\\"340\\" width=\\"353.33333333333337\\" height=\\"70\\" class=\\"ct-label ct-horizontal ct-end\\">Q3 2024</text><text x=\\"1145.5\\" y=\\"340\\" width=\\"30\\" height=\\"70\\" class=\\"ct-label ct-horizontal ct-end\\">Q4 2024</text><text y=\\"228.5\\" x=\\"80\\" height=\\"48\\" width=\\"60\\" class=\\"ct-label ct-vertical ct-start\\">100</text><text y=\\"180.5\\" x=\\"80\\" height=\\"48\\" width=\\"60\\" class=\\"ct-label ct-vertical ct-start\\">1K</text><text y=\\"132.5\\" x=\\"80\\" height=\\"48\\" width=\\"60\\" class=\\"ct-label ct-vertical ct-start\\">10K</text><text y=\\"84.5\\" x=\\"80\\" height=\\"30\\" width=\\"60\\" class=\\"ct-label ct-vertical ct-start\\">100K</text></g><text class=\\"ct-axis-title ct-label\\" x=\\"620\\" y=\\"400\\" dominant-baseline=\\"text-after-edge\\" text-anchor=\\"middle\\">Quarter</text><text class=\\"ct-axis-title ct-label\\" x=\\"20\\" y=\\"200\\" transform=\\"rotate(-90, 20, 200)\\" dominant-baseline=\\"hanging\\" text-anchor=\\"middle\\">Downloads (log)</text></svg>
+            <svg xmlns:ct="http://gionkunz.github.com/chartist-js/ct" width="1200" height="420" class="ct-chart-line"><g class="ct-grids"><line x1="90" x2="90" y1="80" y2="320" class="ct-grid ct-horizontal"></line><line x1="443.3333333333333" x2="443.3333333333333" y1="80" y2="320" class="ct-grid ct-horizontal"></line><line x1="796.6666666666666" x2="796.6666666666666" y1="80" y2="320" class="ct-grid ct-horizontal"></line><line x1="1150" x2="1150" y1="80" y2="320" class="ct-grid ct-horizontal"></line><line y1="224" y2="224" x1="90" x2="1150" class="ct-grid ct-vertical"></line><line y1="176" y2="176" x1="90" x2="1150" class="ct-grid ct-vertical"></line><line y1="128" y2="128" x1="90" x2="1150" class="ct-grid ct-vertical"></line><line y1="80" y2="80" x1="90" x2="1150" class="ct-grid ct-vertical"></line></g><g><g class="ct-series ct-series-a"><path d="M90,161.54C207.778,163.538,325.556,164.793,443.333,167.534C561.111,170.275,678.889,176.05,796.667,180.626C914.444,185.201,1032.222,190.241,1150,195.049" class="ct-line"></path><line x1="90" y1="161.54013974546186" x2="90.01" y2="161.54013974546186" class="ct-point" ct:value="3.3012470886362113"></line><line x1="443.3333333333333" y1="167.53372677232304" x2="443.3433333333333" y2="167.53372677232304" class="ct-point" ct:value="3.1763806922432702"></line><line x1="796.6666666666666" y1="180.62563922795658" x2="796.6766666666666" y2="180.62563922795658" class="ct-point" ct:value="2.9036325160842376"></line><line x1="1150" y1="195.04907011423126" x2="1150.01" y2="195.04907011423126" class="ct-point" ct:value="2.603144372620182"></line></g><g class="ct-series ct-series-b"><path d="M90,167.534C207.778,170.349,325.556,172.841,443.333,175.979C561.111,179.117,678.889,182.534,796.667,186.614C914.444,190.694,1032.222,196.224,1150,201.029" class="ct-line"></path><line x1="90" y1="167.53372677232304" x2="90.01" y2="167.53372677232304" class="ct-point" ct:value="3.1763806922432702"></line><line x1="443.3333333333333" y1="175.9791642809927" x2="443.3433333333333" y2="175.9791642809927" class="ct-point" ct:value="3.000434077479319"></line><line x1="796.6666666666666" y1="186.6140253438685" x2="796.6766666666666" y2="186.6140253438685" class="ct-point" ct:value="2.7788744720027396"></line><line x1="1150" y1="201.02880821149554" x2="1150.01" y2="201.02880821149554" class="ct-point" ct:value="2.478566495593843"></line></g><g class="ct-series ct-series-c"><path d="M90,175.979C207.778,178.455,325.556,180.383,443.333,183.406C561.111,186.428,678.889,190.757,796.667,195.049C914.444,199.341,1032.222,204.647,1150,209.447" class="ct-line"></path><line x1="90" y1="175.9791642809927" x2="90.01" y2="175.9791642809927" class="ct-point" ct:value="3.000434077479319"></line><line x1="443.3333333333333" y1="183.4055351376004" x2="443.3433333333333" y2="183.4055351376004" class="ct-point" ct:value="2.8457180179666586"></line><line x1="796.6666666666666" y1="195.04907011423126" x2="796.6766666666666" y2="195.04907011423126" class="ct-point" ct:value="2.603144372620182"></line><line x1="1150" y1="209.4465892438165" x2="1150.01" y2="209.4465892438165" class="ct-point" ct:value="2.303196057420489"></line></g></g><g class="ct-labels"><text x="85.5" y="340" width="353.3333333333333" height="70" class="ct-label ct-horizontal ct-end">Q1 2024</text><text x="438.8333333333333" y="340" width="353.3333333333333" height="70" class="ct-label ct-horizontal ct-end">Q2 2024</text><text x="792.1666666666666" y="340" width="353.33333333333337" height="70" class="ct-label ct-horizontal ct-end">Q3 2024</text><text x="1145.5" y="340" width="30" height="70" class="ct-label ct-horizontal ct-end">Q4 2024</text><text y="228.5" x="80" height="48" width="60" class="ct-label ct-vertical ct-start">100</text><text y="180.5" x="80" height="48" width="60" class="ct-label ct-vertical ct-start">1K</text><text y="132.5" x="80" height="48" width="60" class="ct-label ct-vertical ct-start">10K</text><text y="84.5" x="80" height="30" width="60" class="ct-label ct-vertical ct-start">100K</text></g><text class="ct-axis-title ct-label" x="620" y="400" dominant-baseline="text-after-edge" text-anchor="middle">Quarter</text><text class="ct-axis-title ct-label" x="20" y="200" transform="rotate(-90, 20, 200)" dominant-baseline="hanging" text-anchor="middle">Downloads (log)</text></svg>
             
     </svg>
 "

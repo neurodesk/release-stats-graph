@@ -39,9 +39,10 @@ const renderReleaseMarkers = (
 
 export const graphSvg = (props: GraphArgs) => `
     <svg
-        width="${props.width}"
-        height="${props.height}"
+        width="100%"
+        height="100%"
         viewBox="0 0 ${props.width} ${props.height}"
+        preserveAspectRatio="xMidYMid meet"
         fill="none"
         xmlns="http://www.w3.org/2000/svg">
             <rect xmlns="http://www.w3.org/2000/svg" data-testid="card_bg" id="cardBg"

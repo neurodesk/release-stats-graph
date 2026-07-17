@@ -106,7 +106,7 @@ export class Utilities {
             return {
                 finalGraph: getChart,
                 header: {
-                    maxAge: 'public, max-age=3600',
+                    maxAge: 'public, max-age=86400', // 1 day
                 },
             };
         } else {

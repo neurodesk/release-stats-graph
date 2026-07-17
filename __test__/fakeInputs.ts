@@ -271,6 +271,24 @@ export let fakeQueryStringRes = [
         custom_title: 'some title',
         grid: true,
     },
+    {
+        owner: 'undefined',
+        repo: 'undefined',
+        radius: 0,
+        height: 420,
+        colors: {
+            areaColor: '9e4c98',
+            bgColor: '44475a',
+            borderColor: 'ff0000',
+            color: 'f8f8f2',
+            titleColor: 'f8f8f2',
+            lineColor: 'ff79c6',
+            pointColor: 'bd93f9',
+        },
+        area: true,
+        hide_title: false,
+        grid: true,
+    },
 ];
 
 export let fakeGraphArgs: GraphArgs = {
